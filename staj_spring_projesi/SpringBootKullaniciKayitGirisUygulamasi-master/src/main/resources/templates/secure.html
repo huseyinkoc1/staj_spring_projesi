@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Projesi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"></link>
+    <script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <!-- Favicon-->
+    <link href="data:image/x-icon;base64,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" rel="icon" type="image/x-icon" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link th:href="@{../../webapp/static/css/styles.css}" href="../../webapp/static/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+</head>
+<body>
+
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Kişisel Finans Uygulaması</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="secure.html">Anasayfa</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menü</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Menü 1</a></li>
+                        <li><a class="dropdown-item" href="#">Menü 2</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/logout">Çıkış Yap</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Page content-->
+<div class="container">
+    <!-- Anasayfa -->
+    <div class="text-center mt-5">
+        <h1>Anasayfa</h1>
+        <p class="lead">Spring Boot Kişisel Finans Uygulaması</p>
+        <label>Giriş Yapıldı. Hoşgeldiniz.</label>
+    </div>
+    <hr/>
+   <!-- Yeni Kayıt Ekle -->
+    <div class="bg-dark bg-opacity-10 popover-header text-md-center">
+        <strong class="h5">Yeni Kayıt Ekle</strong>
+        <p></p>
+        <form action="#" th:action="@{/secure}" th:object="${todo}" method="post">
+            <label>Lütfen İşlem Türünü Seçiniz.</label>
+            <input type="radio" id="gelir" name="fav_language"  th:field="*{description}" value="Gelir"></input>
+            <label for="gelir">Gelir</label>
+            <input type="radio" id="gider" name="fav_language" th:field="*{description}"  value="Gider"></input>
+            <label for="gider">Gider</label>
+
+            <p>Miktar:
+            <input type="number" th:field="*{quantity}" name="Miktar" id="miktar" min="1" max="1000000" placeholder="0"></input></p>
+
+            <p>Not:
+            <input type="text" th:field="*{note}" name="notYaz" id="not" placeholder="Not"></input></p>
+
+            <p><input type="submit" class="btn-dark" value="Kaydet" /> <input type="reset" class="btn-dark" value="Reset" /></p>
+        </form>
+    </div>
+    <hr/>
+    <!-- Tablo -->
+    <div style="font-size: medium; font-weight: bold;">
+        <table class="table table-bordered table-striped table-active table-sm table-dark" id="employeeTable" style="margin-top: 30px">
+            <thead>
+            <tr>
+                <th>İşlem Türü</th>
+                <th>Miktar</th>
+                <th>Not</th>
+                <th>İşlem</th>
+            </tr>
+            </thead>
+            <tbody class="btn-sm jumbotron">
+            <tr th:each="todo : ${todoList}">
+                <td class="text-success" th:text="${todo.description}" th:if="${todo.description == 'Gelir'}"></td>
+                <td class="text-danger" th:text="${todo.description}" th:if="${todo.description == 'Gider'}"></td>
+                <td class="text-success" th:text="${'+'+todo.quantity}"  th:if="${todo.description == 'Gelir'}"></td>
+                <td class="text-danger" th:text="${'-'+todo.quantity}" th:if="${todo.description == 'Gider'}"></td>
+                <td class="text-success" th:text="${todo.note}" th:if="${todo.description == 'Gelir'}"></td>
+                <td class="text-danger" th:text="${todo.note}" th:if="${todo.description == 'Gider'}"></td>
+                <td>
+                    <a th:href="@{/deleteEmployee(employeeId=${todo.id})}" class="btn btn-danger ml-2">Sil</a>
+                    <a th:href="@{/edit/{id}(id=${todo.id})}" class="btn btn-info">Güncelle</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer navbar-dark bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <p class="text-center text-muted">&copy;
+                    <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span>
+                    <b>Spring Boot Proje</b>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script th:src="@{../../webapp/static/js/scripts.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#employeeTable").DataTable({
+            'aoColumnDefs': [{
+                'bSortable': false,
+                'aTargets': [-1] /* 1st one, start by the right */
+            }],
+        });
+    })
+</script>
+</body>
+</html>
